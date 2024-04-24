@@ -48,7 +48,7 @@ jobs:
       - name: Build
         shell: bash -l {0}
         run: |
-          conda install sphinx myst sphinx-rtd-theme -c conda-forge
+          conda install sphinx myst-nb sphinx-rtd-theme -c conda-forge
           sphinx-build -b docs/source . _build
              
       - name: GitHub Pages action

@@ -38,7 +38,6 @@ jobs:
       - name: Setup Python
         uses: conda-incubator/setup-miniconda@v3
         with:
-          activate-environment: test
           #environment-file: geomod.yaml
           python-version: ${{ matrix.python-version }}
           channels: conda-forge,defaults
@@ -49,7 +48,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda install sphinx myst-nb sphinx-rtd-theme -c conda-forge
-          sphinx-build -b ./docs/source ./_build
+          sphinx-build -M html ./docs/source ./_build
              
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4
